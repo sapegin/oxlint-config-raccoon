@@ -22,7 +22,11 @@
     "url": "https://github.com/sapegin/oxlint-config-raccoon"
   },
   "files": [
-    "*.json"
+    "base.json",
+    "oxfmt.json",
+    "typescript-react-tailwind.json",
+    "typescript-react.json",
+    "typescript.json"
   ],
   "type": "module",
   "exports": {
