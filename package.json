@@ -22,23 +22,21 @@
     "url": "git+https://github.com/sapegin/oxlint-config-raccoon.git"
   },
   "files": [
-    "base.json",
-    "oxfmt.json",
-    "typescript-react-tailwind.json",
-    "typescript-react.json",
-    "typescript.json"
+    "dist"
   ],
   "type": "module",
   "exports": {
-    ".": "./base.json",
-    "./base": "./base.json",
-    "./typescript": "./typescript.json",
-    "./typescript-react": "./typescript-react.json",
-    "./typescript-react-tailwind": "./typescript-react-tailwind.json",
-    "./oxfmt": "./oxfmt.json"
+    ".": "./dist/base.json",
+    "./base": "./dist/base.json",
+    "./typescript": "./dist/typescript.json",
+    "./typescript-react": "./dist/typescript-react.json",
+    "./typescript-react-tailwind": "./dist/typescript-react-tailwind.json",
+    "./oxfmt": "./dist/oxfmt.json"
   },
   "scripts": {
-    "pretest": "npm run lint",
+    "prepack": "node scripts/strip-comments.mjs",
+    "build": "node scripts/strip-comments.mjs",
+    "pretest": "npm run build && npm run lint",
     "test": "vitest run",
     "posttest": "npm run format",
     "lint": "oxlint --type-aware --fix",

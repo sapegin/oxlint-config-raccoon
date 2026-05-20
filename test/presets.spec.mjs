@@ -1,4 +1,5 @@
 import { spawnSync } from 'node:child_process';
+import { readFile } from 'node:fs/promises';
 
 import { expect, test } from 'vitest';
 
@@ -30,6 +31,20 @@ test.each([
     status,
     `oxlint exited with ${status}\nstderr:\n${stderr}\nstdout:\n${stdout}`
   ).toBe(0);
+});
+
+test.each([
+  'base.json',
+  'typescript.json',
+  'typescript-react.json',
+  'typescript-react-tailwind.json',
+  'oxfmt.json',
+])('dist/%s parses as strict JSON', async name => {
+  const source = await readFile(
+    new URL(`../dist/${name}`, import.meta.url),
+    'utf8'
+  );
+  expect(() => JSON.parse(source)).not.toThrow();
 });
 
 test('oxfmt loads oxfmt.json', () => {
