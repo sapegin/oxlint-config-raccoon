@@ -1,6 +1,5 @@
 import { spawnSync } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
-
 import { expect, test } from 'vitest';
 
 function run(command, args) {
@@ -20,7 +19,7 @@ test.each([
   'typescript',
   'typescript-react',
   'typescript-react-tailwind',
-])('oxlint loads %s.json', name => {
+])('oxlint loads %s.json', (name) => {
   const { status, stdout, stderr } = run('npx', [
     'oxlint',
     '--print-config',
@@ -39,7 +38,7 @@ test.each([
   'typescript-react.json',
   'typescript-react-tailwind.json',
   'oxfmt.json',
-])('dist/%s parses as strict JSON', async name => {
+])('dist/%s parses as strict JSON', async (name) => {
   const source = await readFile(
     new URL(`../dist/${name}`, import.meta.url),
     'utf8'
@@ -52,7 +51,7 @@ test.each([
   'typescript.json',
   'typescript-react.json',
   'typescript-react-tailwind.json',
-])('dist/%s is self-contained (no extends, no $schema)', async name => {
+])('dist/%s is self-contained (no extends, no $schema)', async (name) => {
   const source = await readFile(
     new URL(`../dist/${name}`, import.meta.url),
     'utf8'
