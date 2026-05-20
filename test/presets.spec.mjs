@@ -1,5 +1,4 @@
 import { spawnSync } from 'node:child_process';
-import { readFile } from 'node:fs/promises';
 import { expect, test } from 'vitest';
 
 function run(command, args) {
@@ -19,12 +18,12 @@ test.each([
   'typescript',
   'typescript-react',
   'typescript-react-tailwind',
-])('oxlint loads %s.json', (name) => {
+])('oxlint loads %s preset', (name) => {
   const { status, stdout, stderr } = run('npx', [
     'oxlint',
     '--print-config',
     '-c',
-    `${name}.json`,
+    `test/fixtures/${name}.config.ts`,
   ]);
   expect(
     status,
@@ -33,35 +32,18 @@ test.each([
 });
 
 test.each([
-  'base.json',
-  'typescript.json',
-  'typescript-react.json',
-  'typescript-react-tailwind.json',
-  'oxfmt.json',
-])('dist/%s parses as strict JSON', async (name) => {
-  const source = await readFile(
-    new URL(`../dist/${name}`, import.meta.url),
-    'utf8'
-  );
-  expect(() => JSON.parse(source)).not.toThrow();
+  'base',
+  'typescript',
+  'typescript-react',
+  'typescript-react-tailwind',
+  'oxfmt',
+])('dist/%s.js exports a config object', async (name) => {
+  const module_ = await import(`../dist/${name}.js`);
+  expect(module_.default).toBeTypeOf('object');
+  expect(module_.default).not.toBeNull();
 });
 
-test.each([
-  'base.json',
-  'typescript.json',
-  'typescript-react.json',
-  'typescript-react-tailwind.json',
-])('dist/%s is self-contained (no extends, no $schema)', async (name) => {
-  const source = await readFile(
-    new URL(`../dist/${name}`, import.meta.url),
-    'utf8'
-  );
-  const config = JSON.parse(source);
-  expect(config).not.toHaveProperty('extends');
-  expect(config).not.toHaveProperty('$schema');
-});
-
-test('oxfmt loads .oxfmtrc.json', () => {
+test('oxfmt loads the local preset', () => {
   const { status, stdout, stderr } = run('npx', [
     'oxfmt',
     '--check',

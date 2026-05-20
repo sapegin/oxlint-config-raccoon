@@ -12,7 +12,7 @@ Shared [Oxlint](https://oxc.rs/docs/guide/usage/linter) and [Oxfmt](https://oxc.
 
 | Preset | Extends | Adds |
 | --- | --- | --- |
-| `oxlint-config-raccoon` / `oxlint-config-raccoon/base` | — | JavaScript baseline (core + Unicorn + Vitest) |
+| `oxlint-config-raccoon/base` | — | JavaScript baseline (core + Unicorn + Vitest) |
 | `oxlint-config-raccoon/typescript` | `base` | `typescript` plugin and type-aware rules |
 | `oxlint-config-raccoon/typescript-react` | `typescript` | `react` and `jsx-a11y` plugins |
 | `oxlint-config-raccoon/typescript-react-tailwind` | `typescript-react` | `oxlint-tailwindcss` JS plugin |
@@ -34,14 +34,41 @@ npm install --save-dev oxlint-tailwindcss
 
 ### Oxlint
 
+#### JavaScript
+
 Create `oxlint.config.ts`:
 
 ```ts
-import { defineConfig, type OxlintConfig } from 'oxlint';
-import config from 'oxlint-config-raccoon/typescript' with { type: 'json' };
+import { defineConfig } from 'oxlint';
+import base from 'oxlint-config-raccoon/base';
 
 export default defineConfig({
-  extends: [config as unknown as OxlintConfig],
+  extends: [base]
+});
+```
+
+To ignore files:
+
+```ts
+import { defineConfig } from 'oxlint';
+import base from 'oxlint-config-raccoon/base';
+
+export default defineConfig({
+  extends: [base],
+  ignorePatterns: ['plugins/*/main.js']
+});
+```
+
+#### TypeScript
+
+Create `oxlint.config.ts`:
+
+```ts
+import { defineConfig } from 'oxlint';
+import typescript from 'oxlint-config-raccoon/typescript';
+
+export default defineConfig({
+  extends: [typescript],
   options: {
     typeAware: true,
     typeCheck: true
@@ -49,59 +76,37 @@ export default defineConfig({
 });
 ```
 
-To ignore files:
-
-```ts
-import { defineConfig, type OxlintConfig } from 'oxlint';
-import config from 'oxlint-config-raccoon/typescript' with { type: 'json' };
-
-export default defineConfig({
-  extends: [config as unknown as OxlintConfig],
-  options: {
-    typeAware: true,
-    typeCheck: true
-  },
-  ignorePatterns: ['plugins/*/main.js']
-});
-```
-
 > [!IMPORTANT] `options.typeAware` and `options.typeCheck` are only honoured in the **root** config file, so the presets do not set them — you must enable type-aware linting yourself when extending the `typescript`, `typescript-react`, or `typescript-react-tailwind` presets.
 
 > [!IMPORTANT] Type-aware linting requires `tsconfig.json` and TypeScript 7+ via [`typescript-go`](https://github.com/microsoft/typescript-go); some legacy options like `baseUrl` are not supported. See the [Oxlint type-aware guide](https://oxc.rs/docs/guide/usage/linter/type-aware.html).
 
-### Oxfmt
+#### React
 
-Create `oxfmt.config.ts`:
-
-```ts
-import { defineConfig, type OxfmtConfig } from 'oxfmt';
-import config from 'oxlint-config-raccoon/oxfmt' with { type: 'json' };
-
-export default defineConfig(config as OxfmtConfig);
-```
-
-To ignore files:
+Create `oxlint.config.ts`:
 
 ```ts
-import { defineConfig, type OxfmtConfig } from 'oxfmt';
-import config from 'oxlint-config-raccoon/oxfmt' with { type: 'json' };
+import { defineConfig } from 'oxlint';
+import typescriptReact from 'oxlint-config-raccoon/typescript-react';
 
 export default defineConfig({
-  ...(config as OxfmtConfig),
-  ignorePatterns: ['plugins/*/main.js']
+  extends: [typescriptReact],
+  options: {
+    typeAware: true,
+    typeCheck: true
+  }
 });
 ```
 
-### Tailwind CSS
+#### Tailwind CSS
 
 The Tailwind lint preset targets **Tailwind CSS v4** (the constraint comes from `oxlint-tailwindcss`). Tell the plugin where to find your Tailwind entry point in your root config:
 
 ```ts
-import config from 'oxlint-config-raccoon/typescript-react-tailwind' with { type: 'json' };
 import { defineConfig } from 'oxlint';
+import typescriptReactTailwind from 'oxlint-config-raccoon/typescript-react-tailwind';
 
 export default defineConfig({
-  extends: [config],
+  extends: [typescriptReactTailwind],
   options: { typeAware: true },
   settings: {
     tailwindcss: {
@@ -111,7 +116,30 @@ export default defineConfig({
 });
 ```
 
-Class sorting is intentionally left to Oxfmt (`sortTailwindcss` in `.oxfmtrc.json`) to avoid two tools fighting over the order.
+Class sorting is intentionally left to Oxfmt (`sortTailwindcss` in `oxfmt.config.ts`) to avoid two tools fighting over the order.
+
+### Oxfmt
+
+Create `oxfmt.config.ts`:
+
+```ts
+import { defineConfig } from 'oxfmt';
+import oxfmt from 'oxlint-config-raccoon/oxfmt';
+
+export default defineConfig(oxfmt);
+```
+
+To ignore files:
+
+```ts
+import { defineConfig } from 'oxfmt';
+import oxfmt from 'oxlint-config-raccoon/oxfmt';
+
+export default defineConfig({
+  ...oxfmt,
+  ignorePatterns: ['plugins/*/main.js']
+});
+```
 
 ## Npm scripts
 

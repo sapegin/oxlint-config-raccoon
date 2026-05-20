@@ -26,16 +26,30 @@
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/base.json",
-    "./base": "./dist/base.json",
-    "./typescript": "./dist/typescript.json",
-    "./typescript-react": "./dist/typescript-react.json",
-    "./typescript-react-tailwind": "./dist/typescript-react-tailwind.json",
-    "./oxfmt": "./dist/oxfmt.json"
+    "./base": {
+      "types": "./dist/base.d.ts",
+      "default": "./dist/base.js"
+    },
+    "./typescript": {
+      "types": "./dist/typescript.d.ts",
+      "default": "./dist/typescript.js"
+    },
+    "./typescript-react": {
+      "types": "./dist/typescript-react.d.ts",
+      "default": "./dist/typescript-react.js"
+    },
+    "./typescript-react-tailwind": {
+      "types": "./dist/typescript-react-tailwind.d.ts",
+      "default": "./dist/typescript-react-tailwind.js"
+    },
+    "./oxfmt": {
+      "types": "./dist/oxfmt.d.ts",
+      "default": "./dist/oxfmt.js"
+    }
   },
   "scripts": {
-    "prepack": "node scripts/build.mjs",
-    "build": "node scripts/build.mjs",
+    "prepack": "npm run build",
+    "build": "tsc",
     "pretest": "npm run build",
     "test": "oxlint && vitest run",
     "test:watch": "vitest",
@@ -47,6 +61,7 @@
     "oxlint": "^1.65.0",
     "oxlint-tailwindcss": "^0.8.0",
     "oxlint-tsgolint": "^0.22.1",
+    "typescript": "^5.7.0",
     "vitest": "^4.0.16"
   },
   "peerDependencies": {

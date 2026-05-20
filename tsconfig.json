@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "declaration": true,
+    "removeComments": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "newLine": "lf",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
