@@ -49,6 +49,22 @@ export default defineConfig({
 });
 ```
 
+To ignore files:
+
+```ts
+import { defineConfig, type OxlintConfig } from 'oxlint';
+import config from 'oxlint-config-raccoon/typescript' with { type: 'json' };
+
+export default defineConfig({
+  extends: [config as unknown as OxlintConfig],
+  options: {
+    typeAware: true,
+    typeCheck: true
+  },
+  ignorePatterns: ['plugins/*/main.js']
+});
+```
+
 > [!IMPORTANT] `options.typeAware` and `options.typeCheck` are only honoured in the **root** config file, so the presets do not set them — you must enable type-aware linting yourself when extending the `typescript`, `typescript-react`, or `typescript-react-tailwind` presets.
 
 > [!IMPORTANT] Type-aware linting requires `tsconfig.json` and TypeScript 7+ via [`typescript-go`](https://github.com/microsoft/typescript-go); some legacy options like `baseUrl` are not supported. See the [Oxlint type-aware guide](https://oxc.rs/docs/guide/usage/linter/type-aware.html).
