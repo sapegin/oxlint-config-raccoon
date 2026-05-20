@@ -36,12 +36,11 @@
   "scripts": {
     "prepack": "node scripts/strip-comments.mjs",
     "build": "node scripts/strip-comments.mjs",
-    "pretest": "npm run build && npm run lint",
-    "test": "vitest run",
-    "posttest": "npm run format",
+    "pretest": "npm run build",
+    "test": "oxlint && vitest run",
+    "test:watch": "vitest",
     "lint": "oxlint --type-aware --fix",
-    "format": "oxfmt -c oxfmt.json",
-    "test:watch": "vitest"
+    "format": "oxfmt"
   },
   "devDependencies": {
     "oxfmt": "^0.50.0",

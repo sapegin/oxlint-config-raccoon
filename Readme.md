@@ -37,7 +37,7 @@ npm install --save-dev oxlint-tailwindcss
 Create `oxlint.config.ts`:
 
 ```ts
-import config from 'oxlint-config-raccoon/typescript-react' with { type: 'json' };
+import config from 'oxlint-config-raccoon/typescript' with { type: 'json' };
 import { defineConfig } from 'oxlint';
 
 export default defineConfig({
@@ -83,7 +83,43 @@ export default defineConfig({
 });
 ```
 
-Class sorting is intentionally left to Oxfmt (`sortTailwindcss` in `oxfmt.json`) to avoid two tools fighting over the order.
+Class sorting is intentionally left to Oxfmt (`sortTailwindcss` in `.oxfmtrc.json`) to avoid two tools fighting over the order.
+
+## Npm scripts
+
+`package.json`:
+
+```json
+{
+  "scripts": {
+    "test": "oxlint && vitest run",
+    "lint": "oxlint --fix",
+    "format": "oxfmt"
+  }
+}
+```
+
+## Editor setup
+
+`.vscode/settings.json`:
+
+```json
+{
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.codeActionsOnSave": {
+    "source.format.oxc": "always",
+    "source.fixAll.oxc": "always"
+  }
+}
+```
+
+`.vscode/extensions.json`:
+
+```json
+{
+  "recommendations": ["oxc.oxc-vscode"]
+}
+```
 
 ## Code style at a glance
 

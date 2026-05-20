@@ -5,11 +5,11 @@ import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 
 const FILES = [
-  'base.json',
-  'typescript.json',
-  'typescript-react.json',
-  'typescript-react-tailwind.json',
-  'oxfmt.json',
+  ['base.json', 'base.json'],
+  ['typescript.json', 'typescript.json'],
+  ['typescript-react.json', 'typescript-react.json'],
+  ['typescript-react-tailwind.json', 'typescript-react-tailwind.json'],
+  ['.oxfmtrc.json', 'oxfmt.json'],
 ];
 
 function stripJsonComments(json) {
@@ -28,12 +28,12 @@ const dist = join(root, 'dist');
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
 
-for (const file of FILES) {
-  const source = await readFile(join(root, file), 'utf8');
+for (const [sourceFile, distFile] of FILES) {
+  const source = await readFile(join(root, sourceFile), 'utf8');
   const stripped = stripJsonComments(source);
 
   // Validate that the result is strict JSON.
   JSON.parse(stripped);
 
-  await writeFile(join(dist, file), stripped);
+  await writeFile(join(dist, distFile), stripped);
 }

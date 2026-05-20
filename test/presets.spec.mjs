@@ -47,12 +47,10 @@ test.each([
   expect(() => JSON.parse(source)).not.toThrow();
 });
 
-test('oxfmt loads oxfmt.json', () => {
+test('oxfmt loads .oxfmtrc.json', () => {
   const { status, stdout, stderr } = run('npx', [
     'oxfmt',
     '--check',
-    '-c',
-    'oxfmt.json',
     'package.json',
   ]);
   expect(

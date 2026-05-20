@@ -8,7 +8,7 @@ Each preset is a single JSON file at the repository root:
 - `typescript.json` — extends `base.json`, enables the `typescript` plugin and type-aware rules.
 - `typescript-react.json` — extends `typescript.json`, enables `react` and `jsx-a11y` plugins.
 - `typescript-react-tailwind.json` — extends `typescript-react.json`, enables the `oxlint-tailwindcss` JS plugin.
-- `oxfmt.json` — Oxfmt formatter preset (import + Tailwind sorting included).
+- `.oxfmtrc.json` — Oxfmt formatter preset (import + Tailwind sorting included). Published as `dist/oxfmt.json` so consumers can extend `oxlint-config-raccoon/oxfmt`.
 
 ## Constraints
 
