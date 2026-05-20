@@ -64,6 +64,18 @@ import config from 'oxlint-config-raccoon/oxfmt' with { type: 'json' };
 export default defineConfig(config as OxfmtConfig);
 ```
 
+To ignore files:
+
+```ts
+import { defineConfig, type OxfmtConfig } from 'oxfmt';
+import config from 'oxlint-config-raccoon/oxfmt' with { type: 'json' };
+
+export default defineConfig({
+  ...(config as OxfmtConfig),
+  ignorePatterns: ['plugins/*/main.js']
+});
+```
+
 ### Tailwind CSS
 
 The Tailwind lint preset targets **Tailwind CSS v4** (the constraint comes from `oxlint-tailwindcss`). Tell the plugin where to find your Tailwind entry point in your root config:
