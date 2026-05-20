@@ -47,6 +47,21 @@ test.each([
   expect(() => JSON.parse(source)).not.toThrow();
 });
 
+test.each([
+  'base.json',
+  'typescript.json',
+  'typescript-react.json',
+  'typescript-react-tailwind.json',
+])('dist/%s is self-contained (no extends, no $schema)', async name => {
+  const source = await readFile(
+    new URL(`../dist/${name}`, import.meta.url),
+    'utf8'
+  );
+  const config = JSON.parse(source);
+  expect(config).not.toHaveProperty('extends');
+  expect(config).not.toHaveProperty('$schema');
+});
+
 test('oxfmt loads .oxfmtrc.json', () => {
   const { status, stdout, stderr } = run('npx', [
     'oxfmt',

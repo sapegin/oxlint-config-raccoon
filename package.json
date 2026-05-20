@@ -34,8 +34,8 @@
     "./oxfmt": "./dist/oxfmt.json"
   },
   "scripts": {
-    "prepack": "node scripts/strip-comments.mjs",
-    "build": "node scripts/strip-comments.mjs",
+    "prepack": "node scripts/build.mjs",
+    "build": "node scripts/build.mjs",
     "pretest": "npm run build",
     "test": "oxlint && vitest run",
     "test:watch": "vitest",
