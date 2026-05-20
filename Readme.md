@@ -37,11 +37,11 @@ npm install --save-dev oxlint-tailwindcss
 Create `oxlint.config.ts`:
 
 ```ts
+import { defineConfig, type OxlintConfig } from 'oxlint';
 import config from 'oxlint-config-raccoon/typescript' with { type: 'json' };
-import { defineConfig } from 'oxlint';
 
 export default defineConfig({
-  extends: [config],
+  extends: [config as unknown as OxlintConfig],
   options: {
     typeAware: true,
     typeCheck: true
@@ -58,10 +58,10 @@ export default defineConfig({
 Create `oxfmt.config.ts`:
 
 ```ts
+import { defineConfig, type OxfmtConfig } from 'oxfmt';
 import config from 'oxlint-config-raccoon/oxfmt' with { type: 'json' };
-import { defineConfig } from 'oxfmt';
 
-export default defineConfig(config);
+export default defineConfig(config as OxfmtConfig);
 ```
 
 ### Tailwind CSS
