@@ -66,8 +66,6 @@
     "require-await": "error",
     // Disallow Yoda conditions
     "yoda": ["error", "never", { "exceptRange": true }],
-    // Disallow duplicate imports
-    "no-duplicate-imports": "error",
     // Disallow unnecessary constructor
     "no-useless-constructor": "error",
     // Disallow unnecessary computed property keys on objects
@@ -102,7 +100,9 @@
     "unicode-bom": ["warn", "never"],
 
     // Enforces the use of inline type-only markers for named imports
-    "import/consistent-type-specifier-style": "warn",
+    "import/consistent-type-specifier-style": ["warn", "prefer-inline"],
+    // Reports if a resolved path is imported more than once in the same module
+    "import/no-duplicates": ["error", { "preferInline": true }],
     // Enforces that named import blocks are not empty
     "import/no-empty-named-blocks": "warn",
 
