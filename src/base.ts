@@ -428,6 +428,10 @@ const config: OxlintConfig = {
         'vitest/prefer-todo': 'warn',
         // Disallow setup code outside of hooks or describe/test blocks
         'vitest/require-hook': 'warn',
+        // Checks that the titles of Jest and Vitest blocks are valid (this rule
+        // is enabled by default but conflicts with
+        // vitest/prefer-describe-function-title without allowArguments option)
+        'vitest/valid-title': ['error', { allowArguments: true }],
       },
     },
   ],
