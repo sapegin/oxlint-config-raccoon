@@ -37,10 +37,14 @@ const config: OxlintConfig = {
     'react/no-danger': 'error',
     // Enforce that namespaces are not used in React elements
     'react/no-namespace': 'error',
+    // Disallows using object, array, function, class, regex, JSX, or new-constructed values as default values for destructured React component props
+    'react/no-object-type-as-default-prop': 'error',
     // Prevents characters that you may have meant as JSX escape characters from being accidentally injected as a text node
     'react/no-unescaped-entities': 'error',
     // Disallow usage of unknown DOM properties
     'react/no-unknown-property': 'error',
+    // Disallows defining React components inside other components
+    'react/no-unstable-nested-components': 'error',
     // Enforces the Rules of Hooks
     'react/rules-of-hooks': 'error',
     // Avoid unnecessary extra closing tags on self-closing components

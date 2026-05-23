@@ -57,18 +57,18 @@
     "format": "oxfmt"
   },
   "devDependencies": {
-    "oxfmt": "^0.50.0",
-    "oxlint": "^1.65.0",
-    "oxlint-tailwindcss": "^0.8.0",
-    "oxlint-tsgolint": "^0.22.1",
-    "typescript": "^5.7.0",
-    "vitest": "^4.0.16"
+    "oxfmt": "0.51.0",
+    "oxlint": "1.66.0",
+    "oxlint-tailwindcss": "0.8.0",
+    "oxlint-tsgolint": "0.23.0",
+    "typescript": "5.9.3",
+    "vitest": "4.0.16"
   },
   "peerDependencies": {
-    "oxfmt": "*",
-    "oxlint": "*",
-    "oxlint-tailwindcss": "*",
-    "oxlint-tsgolint": "*"
+    "oxfmt": ">=0.51",
+    "oxlint": ">=1.66",
+    "oxlint-tailwindcss": ">=0.8",
+    "oxlint-tsgolint": ">=0.23"
   },
   "peerDependenciesMeta": {
     "oxlint-tailwindcss": {

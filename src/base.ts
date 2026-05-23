@@ -19,6 +19,8 @@ const config: OxlintConfig = {
     'dot-notation': ['error', { allowKeywords: true }],
     // Require the use of === and !==
     eqeqeq: ['error', 'smart'],
+    // Enforces a naming convention for identifiers
+    'id-match': 'error',
     // Disallow the use of alert, confirm, and prompt
     'no-alert': 'error',
     // Disallow adding to native types
@@ -27,6 +29,8 @@ const config: OxlintConfig = {
     'no-extra-bind': 'error',
     // Disallow the type conversions with shorter notations
     'no-implicit-coercion': 'error',
+    // Disallows passing strings to setTimeout(), setInterval(), and execScript()
+    'no-implied-eval': 'error',
     // Disallow usage of __iterator__ property
     'no-iterator': 'error',
     // Disallow use of labels for anything other then loops and switches
@@ -102,6 +106,8 @@ const config: OxlintConfig = {
 
     // Enforces the use of inline type-only markers for named imports
     'import/consistent-type-specifier-style': ['warn', 'prefer-inline'],
+    // Enforces having an empty line after the last top-level import statement or require call
+    'import/newline-after-import': 'warn',
     // Reports if a resolved path is imported more than once in the same module
     'import/no-duplicates': ['error', { preferInline: true }],
     // Enforces that named import blocks are not empty
@@ -376,6 +382,8 @@ const config: OxlintConfig = {
         'vitest/no-test-return-statement': 'error',
         // Disallows unnecessary async function wrapper for expected promises
         'vitest/no-unneeded-async-expect-function': 'warn',
+        // Enforces a line of padding before and after 1 or more afterAll statements
+        'vitest/padding-around-after-all-blocks': 'warn',
         // It checks when a target is asserted with both toHaveBeenCalledOnce and toHaveBeenCalledWith instead of toHaveBeenCalledExactlyOnceWith
         'vitest/prefer-called-exactly-once-with': 'error',
         // Substitute toBeCalledTimes(1) and toHaveBeenCalledTimes(1) with toBeCalledOnce() and toHaveBeenCalledOnce() respectively
