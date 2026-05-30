@@ -237,8 +237,6 @@ const config: OxlintConfig = {
     'unicorn/no-useless-switch-case': 'error',
     // Prevents the use of zero fractions
     'unicorn/no-zero-fractions': 'warn',
-    // Enforces proper case for numeric literals
-    'unicorn/number-literal-case': 'warn',
     // Enforces a convention of grouping digits using numeric separators
     'unicorn/numeric-separators-style': 'warn',
     // Enforces the use of .addEventListener() and .removeEventListener() over their on-function counterparts
