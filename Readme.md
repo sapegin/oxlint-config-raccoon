@@ -69,10 +69,7 @@ import typescript from 'oxlint-config-raccoon/typescript';
 
 export default defineConfig({
   extends: [typescript],
-  options: {
-    typeAware: true,
-    typeCheck: true
-  }
+  options: { typeAware: true, typeCheck: true }
 });
 ```
 
@@ -92,10 +89,7 @@ import typescriptReact from 'oxlint-config-raccoon/typescript-react';
 
 export default defineConfig({
   extends: [typescriptReact],
-  options: {
-    typeAware: true,
-    typeCheck: true
-  }
+  options: { typeAware: true, typeCheck: true }
 });
 ```
 
@@ -109,7 +103,7 @@ import typescriptReactTailwind from 'oxlint-config-raccoon/typescript-react-tail
 
 export default defineConfig({
   extends: [typescriptReactTailwind],
-  options: { typeAware: true },
+  options: { typeAware: true, typeCheck: true },
   settings: {
     tailwindcss: {
       entryPoint: 'src/styles/app.css'

@@ -163,6 +163,22 @@ const config: OxlintConfig = {
     'unicorn/escape-case': 'warn',
     // Enforce explicitly comparing the length or size property of a value
     'unicorn/explicit-length-check': 'warn',
+    // Import styles for Node.js modules, adds more modules than the default
+    // config has
+    'unicorn/import-style': [
+      'warn',
+      {
+        styles: {
+          'node:child_process': { named: true },
+          'node:fs': { default: true },
+          'node:fs/promises': { default: true },
+          'node:path': { default: true },
+          'node:os': { default: true },
+          'node:readline': { default: true },
+          'node:util': { named: true },
+        },
+      },
+    ],
     // Enforces or disallows the use of new for the builtins
     'unicorn/new-for-builtins': 'error',
     // Disallows oxlint-disable or eslint-disable comments without specifying rules
