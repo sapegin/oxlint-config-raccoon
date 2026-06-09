@@ -27,7 +27,7 @@ npm install --save-dev oxlint oxlint-tsgolint oxfmt oxlint-config-raccoon
 For the Tailwind preset, also install:
 
 ```sh
-npm install --save-dev oxlint-tailwindcss
+npm install --save-dev oxlint-tailwindcss @oxlint/plugins
 ```
 
 ## Usage
@@ -144,7 +144,7 @@ export default defineConfig({
 ```json
 {
   "scripts": {
-    "test": "oxlint && vitest run",
+    "test": "oxlint --fix && vitest run",
     "lint": "oxlint --fix",
     "format": "oxfmt"
   }
