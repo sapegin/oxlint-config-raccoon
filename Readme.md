@@ -27,7 +27,7 @@ npm install --save-dev oxlint oxlint-tsgolint oxfmt oxlint-config-raccoon
 For the Tailwind preset, also install:
 
 ```sh
-npm install --save-dev oxlint-tailwindcss
+npm install --save-dev oxlint-tailwindcss @oxlint/plugins
 ```
 
 ## Usage
