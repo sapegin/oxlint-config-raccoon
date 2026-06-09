@@ -144,7 +144,7 @@ export default defineConfig({
 ```json
 {
   "scripts": {
-    "test": "oxlint && vitest run",
+    "test": "oxlint --fix && vitest run",
     "lint": "oxlint --fix",
     "format": "oxfmt"
   }
