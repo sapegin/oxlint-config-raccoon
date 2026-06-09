@@ -51,6 +51,8 @@ const config: OxlintConfig = {
     'react/self-closing-comp': ['error', { component: true, html: false }],
     // Require that the value of the prop style be an object or a variable that is an object
     'react/style-prop-object': 'error',
+    // Enforce that a control (an interactive element) has a text label
+    'jsx-a11y/control-has-associated-label': ['error', { depth: 5 }],
   },
 };
 
