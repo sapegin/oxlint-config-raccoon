@@ -58,15 +58,24 @@ const config: OxlintConfig = {
     // Disallow conversion idioms when they do not change the type or value of
     // the expression
     'typescript/no-unnecessary-type-conversion': 'error',
+    // Enforces the use of a for...of loop instead of a for loop with simple
+    // iteration
+    'typescript/prefer-for-of': 'error',
+    // Enforce using function types instead of interfaces with call signatures.
+    'typescript/prefer-function-type': 'warn',
     // Enforce using the nullish coalescing operator instead of logical
     // assignments or chaining
-    'typescript/prefer-nullish-coalescing': 'error',
+    'typescript/prefer-nullish-coalescing': 'warn',
     // Prefer optional chaining (`x.?y`) instead of chained logical ANDs
     // (`x && x.y`)
     'typescript/prefer-optional-chain': 'error',
+    // Require function and method parameters to use readonly-compatible types
+    'typescript/prefer-readonly-parameter-types': 'error',
     // Enforce using type parameter when calling `Array.reduce()` instead of
     // using a type assertion
-    'typescript/prefer-reduce-type-parameter': 'error',
+    'typescript/prefer-reduce-type-parameter': 'warn',
+    // Enforce using @ts-expect-error over @ts-ignore
+    'typescript/prefer-ts-expect-error': 'warn',
   },
 };
 
