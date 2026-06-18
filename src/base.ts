@@ -189,6 +189,8 @@ const config: OxlintConfig = {
     'unicorn/no-anonymous-default-export': 'error',
     // Forbids the use of Array#forEach in favor of a for loop
     'unicorn/no-array-for-each': 'error',
+    // Disallows using reference values as Array#fill() values
+    'unicorn/no-array-fill-with-reference-type': 'error',
     // Disallows the use of the thisArg parameter in array iteration methods
     'unicorn/no-array-method-this-argument': 'error',
     // Prefer using Array#toReversed() over Array#reverse()
@@ -293,6 +295,8 @@ const config: OxlintConfig = {
     'unicorn/prefer-dom-node-text-content': 'warn',
     // Prefers EventTarget over EventEmitter
     'unicorn/prefer-event-target': 'error',
+    // Prefer `export from` over import/export
+    'unicorn/prefer-export-from': 'error',
     // Enforces the use of globalThis instead of environment‑specific global object aliases (window, self, or global)
     'unicorn/prefer-global-this': 'error',
     // Prefer import.meta.{dirname,filename} over legacy techniques for getting file paths
@@ -335,6 +339,9 @@ const config: OxlintConfig = {
     'unicorn/prefer-regexp-test': 'warn',
     // Enforces the use of Response.json() over new Response(JSON.stringify())
     'unicorn/prefer-response-static-json': 'error',
+    // Enforces combining multiple Array#{push,unshift}(),
+    // Element#classList.{add,remove}(), and importScripts() into a single call
+    'unicorn/prefer-single-call': 'warn',
     // Enforces the use of the spread operator (...) over outdated patterns
     'unicorn/prefer-spread': 'warn',
     // Prefers String#replaceAll() over String#replace() when using a regex with the global flag
