@@ -70,7 +70,12 @@ const config: OxlintConfig = {
     // (`x && x.y`)
     'typescript/prefer-optional-chain': 'error',
     // Require function and method parameters to use readonly-compatible types
-    'typescript/prefer-readonly-parameter-types': 'error',
+    'typescript/prefer-readonly-parameter-types': [
+      'error',
+      {
+        ignoreInferredTypes: true,
+      },
+    ],
     // Enforce using type parameter when calling `Array.reduce()` instead of
     // using a type assertion
     'typescript/prefer-reduce-type-parameter': 'warn',
