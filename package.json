@@ -1,6 +1,6 @@
 {
   "name": "oxlint-config-raccoon",
-  "version": "10.4.1",
+  "version": "10.4.2",
   "description": "Artem Sapegin’s Oxlint and Oxfmt config",
   "keywords": [
     "oxfmt",
