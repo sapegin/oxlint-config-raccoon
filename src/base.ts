@@ -41,6 +41,9 @@ const config: OxlintConfig = {
     'no-loop-func': 'error',
     // Disallow use of multiline strings
     'no-multi-str': 'error',
+    // Disallows nested ternary expressions (no autofix, unlike the unicorn
+    // variant whose parenthesizing fix conflicts with Oxfmt)
+    'no-nested-ternary': 'error',
     // Disallows creating new instances of String, Number, and Boolean
     'no-new-wrappers': 'error',
     // Disallow usage of __proto__ property
@@ -221,8 +224,6 @@ const config: OxlintConfig = {
     'unicorn/no-negated-condition': 'error',
     // Disallow negated expressions on the left of (in)equality checks
     'unicorn/no-negation-in-equality-check': 'error',
-    // Disallows deeply nested ternary expressions
-    'unicorn/no-nested-ternary': 'error',
     // Disallows the deprecated new Buffer() constructor
     'unicorn/no-new-buffer': 'error',
     // Disallow the use of an object literal as a default value for a parameter
