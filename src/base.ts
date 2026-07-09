@@ -74,6 +74,8 @@ const config: OxlintConfig = {
     'require-await': 'error',
     // Disallow Yoda conditions
     yoda: ['error', 'never', { exceptRange: true }],
+    // Disallow loops whose body allows only one iteration
+    'no-unreachable-loop': 'error',
     // Disallow unnecessary constructor
     'no-useless-constructor': 'error',
     // Disallow unnecessary computed property keys on objects
@@ -202,6 +204,8 @@ const config: OxlintConfig = {
     'unicorn/no-array-sort': 'warn',
     // Disallows member access from await expressions
     'unicorn/no-await-expression-member': 'error',
+    // Disallows confusing uses of Array#with()
+    'unicorn/no-confusing-array-with': 'error',
     // Disallows leading/trailing space inside console.log()
     'unicorn/no-console-spaces': 'warn',
     // Disallows direct use of document.cookie
