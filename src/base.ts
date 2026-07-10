@@ -371,8 +371,6 @@ const config: OxlintConfig = {
     'unicorn/require-module-specifiers': 'warn',
     // Enforce using the digits argument with Number#toFixed()
     'unicorn/require-number-to-fixed-digits-argument': 'warn',
-    // Enforce using the targetOrigin argument with window.postMessage()
-    'unicorn/require-post-message-target-origin': 'warn',
     // Enforces consistent casing for text encoding identifiers
     'unicorn/text-encoding-identifier-case': 'warn',
     // Makes sure you always use new when throwing an error
