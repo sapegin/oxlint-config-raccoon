@@ -14,7 +14,8 @@ const config: OxlintConfig = {
     'tailwindcss/no-duplicate-classes': 'warn',
     // Detects classes deprecated in Tailwind CSS v4
     'tailwindcss/no-deprecated-classes': 'warn',
-    // Requires a base (light) utility when using the dark: variant on the same element
+    // Requires a base (light) utility when using the dark: variant on the same
+    // element
     'tailwindcss/no-dark-without-light': 'warn',
     // Detects variant-prefixed classes that are redundant
     'tailwindcss/no-contradicting-variants': 'warn',
@@ -32,7 +33,11 @@ const config: OxlintConfig = {
     'tailwindcss/no-hardcoded-colors': 'warn',
     // Detects arbitrary values that have a named Tailwind equivalent
     'tailwindcss/no-unnecessary-arbitrary-value': 'warn',
-    // Suggests replacing raw CSS variable references like border-(--border) with the equivalent named theme-token utility
+    // Prefer the scale step or theme token a hardcoded value is numerically
+    // equal to
+    'tailwindcss/prefer-scale-token': 'warn',
+    // Suggests replacing raw CSS variable references like border-(--border)
+    // with the equivalent named theme-token utility
     'tailwindcss/prefer-theme-tokens': 'warn',
   },
 };

@@ -1,3 +1,5 @@
+Ecosystem context: read `~/dotfiles/ai/raccoonarium.md`.
+
 Shared Oxlint and Oxfmt configuration, authored in TypeScript and published as compiled JS + `.d.ts`.
 
 ## Layout
