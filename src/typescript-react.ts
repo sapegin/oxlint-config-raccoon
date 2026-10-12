@@ -5,6 +5,12 @@ const config: OxlintConfig = {
   extends: [typescript],
   plugins: ['react', 'jsx-a11y'],
   rules: {
+    // Disable react Compiler rules (from typeCheck) that fight normal React
+    // patterns
+    'react/preserve-manual-memoization': 'off',
+    'react/purity': 'off',
+    'react/refs': 'off',
+    'react/set-state-in-effect': 'off',
     // Enforces explicit type attribute for all the button HTML elements
     'react/button-has-type': 'error',
     // Enforces onChange or readOnly attribute for checked property of input elements
