@@ -12,13 +12,21 @@ const config: OxlintConfig = {
     'tailwindcss/no-conflicting-classes': 'error',
     // Detects repeated classes in the same string
     'tailwindcss/no-duplicate-classes': 'warn',
+    // Disallows Tailwind's default palette (bg-red-500, etc.)
+    'tailwindcss/no-default-palette': 'error',
     // Detects classes deprecated in Tailwind CSS v4
     'tailwindcss/no-deprecated-classes': 'warn',
+    // Disallows dynamic classes (bg-${color}-500, etc.)
+    'tailwindcss/no-dynamic-classes': 'error',
     // Requires a base (light) utility when using the dark: variant on the same
     // element
     'tailwindcss/no-dark-without-light': 'warn',
     // Detects variant-prefixed classes that are redundant
     'tailwindcss/no-contradicting-variants': 'warn',
+    // Enforces a consistent order for Tailwind CSS variant prefixes
+    'tailwindcss/consistent-variant-order': 'warn',
+    // Disallow unnecessary whitespace in Tailwind CSS class strings
+    'tailwindcss/no-unnecessary-whitespace': 'warn',
     // Enforces canonical Tailwind CSS class names
     'tailwindcss/enforce-canonical': 'warn',
     // Suggests shorthand classes when all axes have the same value

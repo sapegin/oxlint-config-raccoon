@@ -36,6 +36,8 @@ const config: OxlintConfig = {
     'typescript/no-inferrable-types': 'error',
     // Disallow void type outside of generic or return types
     'typescript/no-invalid-void-type': 'error',
+    // Disallow `{}` types that are equivalent to a defined object type
+    'typescript/no-generated-empty-object-type': 'error',
     // Disallow non-null assertions using the ! postfix operator
     'typescript/no-non-null-assertion': 'error',
     // Disallow the void operator except when used to discard a value
