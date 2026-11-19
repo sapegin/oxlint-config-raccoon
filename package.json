@@ -57,18 +57,18 @@
     "lint:fix": "oxlint --type-aware --fix && oxfmt --write"
   },
   "devDependencies": {
-    "oxfmt": "0.73",
-    "oxlint": "1.88",
-    "oxlint-tailwindcss": "1.16.0",
-    "oxlint-tsgolint": "7.0.2004",
+    "oxfmt": "0.78",
+    "oxlint": "1.93",
+    "oxlint-tailwindcss": "1.17.2",
+    "oxlint-tsgolint": "7.0.2007",
     "typescript": "7.0.2",
-    "vitest": "5.0.2"
+    "vitest": "5.1.0"
   },
   "peerDependencies": {
-    "oxfmt": ">=0.73",
-    "oxlint": ">=1.88",
-    "oxlint-tailwindcss": ">=1.16",
-    "oxlint-tsgolint": ">=7"
+    "oxfmt": ">=0.78",
+    "oxlint": ">=1.93",
+    "oxlint-tailwindcss": ">=1.17",
+    "oxlint-tsgolint": ">=7.0.2005"
   },
   "peerDependenciesMeta": {
     "oxlint-tailwindcss": {

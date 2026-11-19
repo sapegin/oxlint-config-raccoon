@@ -38,6 +38,8 @@ const config: OxlintConfig = {
     'typescript/no-invalid-void-type': 'error',
     // Disallow `{}` types that are equivalent to a defined object type
     'typescript/no-generated-empty-object-type': 'error',
+    // Disallow assigning a non-enum value where an enum type is expected
+    'typescript/no-unsafe-enum-assignment': 'error',
     // Disallow non-null assertions using the ! postfix operator
     'typescript/no-non-null-assertion': 'error',
     // Disallow the void operator except when used to discard a value
